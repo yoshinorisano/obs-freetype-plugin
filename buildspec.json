@@ -81,6 +81,6 @@
             "qtVersion": 6
         }
     },
-    "name": "obs-plugintemplate",
-    "version": "1.0.0"
+    "name": "obs-freetype-plugin",
+    "version": "0.1.0"
 }

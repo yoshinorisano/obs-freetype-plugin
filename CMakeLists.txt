@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.16...3.21)
 
 # Change obs-plugintemplate to your plugin's name in a machine-readable format (e.g.:
 # obs-myawesomeplugin) and set
-project(obs-plugintemplate VERSION 1.0.0)
+project(obs-freetype-plugin VERSION 0.1.0)
 add_library(${CMAKE_PROJECT_NAME} MODULE)
 
 # Replace `Your Name Here` with the name (yours or your organization's) you want to see as the
 # author of the plugin (in the plugin's metadata itself and in the installers)
-set(PLUGIN_AUTHOR "Your Name Here")
+set(PLUGIN_AUTHOR "Yoshinori Sano")
 
 # Replace `com.example.obs-plugin-template` with a unique Bundle ID for macOS releases (used both in
 # the installer and when submitting the installer for notarization)
