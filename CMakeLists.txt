@@ -24,6 +24,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-main.c)
 find_package(libobs REQUIRED)
 include(cmake/ObsPluginHelpers.cmake)
 
+find_package(Freetype REQUIRED)
+
 # Uncomment these lines if you want to use the OBS Frontend API in your plugin
 #[[
 find_package(obs-frontend-api REQUIRED)
@@ -49,9 +51,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-macros.generated.h)
 
 # --- Platform-independent build settings ---
 
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src ${FREETYPE_INCLUDE_DIRS})
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE OBS::libobs)
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE OBS::libobs ${FREETYPE_LIBRARY}/freetype.lib)
 
 # --- End of section ---
 

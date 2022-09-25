@@ -18,6 +18,9 @@ with this program. If not, see <https://www.gnu.org/licenses/>
 
 #include <obs-module.h>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 #include "plugin-macros.generated.h"
 
 OBS_DECLARE_MODULE()
@@ -27,6 +30,27 @@ bool obs_module_load(void)
 {
 	blog(LOG_INFO, "plugin loaded successfully (version %s)",
 	     PLUGIN_VERSION);
+
+	FT_Library library;
+	FT_Face face;
+	FT_Error error;
+
+	error = FT_Init_FreeType(&library);
+	if (error) {
+		return false;
+	}
+
+	const char *filename = "C:\\Windows\\Fonts\\arial.ttf";
+
+	error = FT_New_Face(library, filename, 0, &face);
+	if (error) {
+		FT_Done_FreeType(library);
+		return false;
+	}
+
+	FT_Done_Face(face);
+	FT_Done_FreeType(library);
+
 	return true;
 }
 

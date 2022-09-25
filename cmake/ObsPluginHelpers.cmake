@@ -575,7 +575,7 @@ else()
         ${CMAKE_PROJECT_NAME}
         PRIVATE
         "LINKER:/OPT:REF"
-        "LINKER:/WX"
+        # "LINKER:/WX"
         "$<$<NOT:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>>:LINKER\:/SAFESEH\:NO>"
         "$<$<CONFIG:DEBUG>:LINKER\:/INCREMENTAL\:NO>"
         "$<$<CONFIG:RELWITHDEBINFO>:LINKER\:/INCREMENTAL\:NO;/OPT\:ICF>")
