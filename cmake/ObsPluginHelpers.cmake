@@ -639,6 +639,23 @@ else()
         ${CMAKE_CURRENT_BINARY_DIR}/cmake_install.cmake
       COMMENT "Installing to plugin rundir"
       VERBATIM)
+
+    # Deploy plugin for debug
+    add_custom_command(
+      TARGET ${target}
+      POST_BUILD
+      COMMAND copy C:\\projects\\obs-freetype-plugin\\build\\rundir\\Debug\\obs-plugins\\64bit\\* C:\\projects\\obs-build\\rundir\\Debug\\obs-plugins\\64bit
+    )
+
+    # Set "Configuration Properties > Debugging > Command / Working Direcotyr" for debug
+    set_target_properties(
+      ${target}
+      PROPERTIES
+      VS_DEBUGGER_COMMAND
+      C:\\projects\\obs-build\\rundir\\Debug\\bin\\64bit\\obs64.exe
+      VS_DEBUGGER_WORKING_DIRECTORY
+      C:\\projects\\obs-build\\rundir\\Debug\\bin\\64bit
+    )
   endfunction()
 
   # Helper function to add resources from "data" directory
